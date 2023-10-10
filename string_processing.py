@@ -14,4 +14,12 @@ def tokenize(sentence):
     # Convertir les mots en minuscules
     words = [word.lower() for word in words]
 
-    return words
+    # Séparer les mots contenant des apostrophes ou des tirets en mots individuels
+    final_words = []
+    for word in words:
+        if "'" in word or "-" in word:
+            final_words.extend(re.split(r"['-]", word))
+        else:
+            final_words.append(word)
+
+    return final_words
