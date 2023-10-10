@@ -8,20 +8,17 @@ def remember_the_milk(shopping_list):
     return shopping_list
 
 def clean_list(shopping_list):
+    i = 0
     if not shopping_list:
-        return []
+        return shopping_list
+    while i < len(shopping_list):
+        shopping_list[i] = shopping_list[i].strip()
+        i+=1
+    remember_the_milk(shopping_list)
+    i=0
+    while i < len(shopping_list):
+        shopping_list[i] = shopping_list[i].capitalize()
+        shopping_list[i] = f'{i+1}/ ' + shopping_list[i]
+        i+=1
 
-    # Add milk at the end of the list if missing.
-    if "Milk" not in shopping_list:
-        shopping_list.append("Milk")
-
-    cleaned_list = []
-    for index, item in enumerate(shopping_list):
-        # Remove all spaces before and after.
-        item = item.strip()
-
-        # Capitalize the first letter.
-        item = item.capitalize()
-        # Add the index number and separator.
-        cleaned_list.append(f"{index + 1}/ {item}")
-    return cleaned_list
+    return shopping_list
