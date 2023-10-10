@@ -2,21 +2,16 @@ import re
 
 
 def tokenize(sentence):
-    # Supprimer la ponctuation et les caractères spéciaux tout en préservant espaces, apostrophes et tirets
-    sentence = re.sub(r'[^\w\s\'-]', '', sentence)
+    # Remplacer les apostrophes et tirets par des espaces pour pouvoir les séparer
+    sentence = re.sub(r"['-]", ' ', sentence)
 
-    # Fractionner la phrase en mots tout en préservant les mots contenant des apostrophes et des tirets
-    words = re.findall(r'\b\w+(?:[-\']\w+)*\b', sentence)
+    # Supprimer la ponctuation et les caractères spéciaux
+    sentence = re.sub(r'[^a-zA-Z0-9\s]', '', sentence)
 
-    # Séparer les mots contenant des apostrophes ou des tirets en mots individuels
-    final_words = []
-    for word in words:
-        if "'" in word or "-" in word:
-            final_words.extend(re.split(r"['-]", word))
-        else:
-            final_words.append(word)
+    # Séparer la phrase en mots
+    words = sentence.split()
 
     # Convertir les mots en minuscules
-    final_words = [word.lower() for word in final_words if word]  # Filtrer les mots vides
+    words = [word.lower() for word in words]
 
-    return final_words
+    return words
