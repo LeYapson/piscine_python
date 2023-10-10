@@ -1,17 +1,19 @@
-import re
-
+import string
 
 def tokenize(sentence):
-    # Remplacer les apostrophes et tirets par des espaces pour pouvoir les séparer
-    sentence = re.sub(r"['-]", ' ', sentence)
+    # Créer une table de traduction pour supprimer la ponctuation
+    translator = str.maketrans('', '', string.punctuation)
 
-    # Utiliser une expression régulière spécifique pour les mots comme "c'est-à-dire"
-    words = re.findall(r'\b\w+(?:-\w+)*\b', sentence)
+    # Remplacer les apostrophes et tirets par des espaces pour pouvoir les séparer
+    sentence = sentence.replace("'", " ").replace("-", " ")
 
     # Supprimer la ponctuation et les caractères spéciaux
-    words = [re.sub(r'[^a-zA-Z0-9]', '', word) for word in words]
+    sentence = sentence.translate(translator)
+
+    # Séparer la phrase en mots
+    words = sentence.split()
 
     # Convertir les mots en minuscules
-    words = [word.lower() for word in words if word]  # Filtrer les mots vides
+    words = [word.lower() for word in words]
 
     return words
