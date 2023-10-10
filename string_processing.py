@@ -1,22 +1,21 @@
 import string
+import re
+
 
 def tokenize(sentence):
-  """Tokenizes a sentence.
+    # Remove punctuation and special characters
+    sentence = re.sub(r'[^a-zA-Z0-9\s]', '', sentence)
 
-  Args:
-    sentence: A string representing the sentence to be tokenized.
+    # Split the sentence into words
+    words = sentence.split()
 
-  Returns:
-    A list of strings representing the tokens in the sentence.
-  """
+    # Convert words to lowercase
+    words = [word.lower() for word in words]
 
-  # Remove all punctuation signs and special characters.
-  sentence = sentence.translate(str.maketrans('', '', string.punctuation))
+    return words
 
-  # Split the sentence into words.
-  words = sentence.split()
 
-  # Convert all words to lowercase.
-  words = [word.lower() for word in words]
-
-  return words
+# Test the tokenize function
+if __name__ == '__main__':
+    my_sentence = "Dites, on n'attend pas votre soeur ?"
+    print(tokenize(my_sentence))
