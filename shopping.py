@@ -12,8 +12,8 @@ def clean_list(shopping_list):
         return []
 
     # Add milk at the end of the list if missing.
-    if "milk" not in shopping_list:
-        shopping_list.append("milk")
+    if "Milk" not in shopping_list:
+        shopping_list.append("Milk")
 
     cleaned_list = []
     for index, item in enumerate(shopping_list):
