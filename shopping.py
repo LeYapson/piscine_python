@@ -30,6 +30,6 @@ def clean_list(shopping_list):
     item = item.capitalize()
 
     # Add the index number and separator.
-    cleaned_list.append(f"{index + 1}/{item}")
+    cleaned_list.append(f"{index + 1}/ {item}")
 
   return cleaned_list
