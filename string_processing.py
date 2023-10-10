@@ -13,9 +13,3 @@ def tokenize(sentence):
     words = [word.lower() for word in words]
 
     return words
-
-
-# Test the tokenize function
-if __name__ == '__main__':
-    my_sentence = "Dites, on n'attend pas votre soeur ?"
-    print(tokenize(my_sentence))
