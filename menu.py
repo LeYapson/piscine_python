@@ -6,9 +6,8 @@ def build_menu(recipes, start_date):
     current_date = start_date
 
     for recipe in recipes:
-        if recipe == 'title':
-            menu.append((current_date, recipe))
-            current_date += dt.timedelta(days=1)
+        menu.append((current_date, recipe))
+        current_date += dt.timedelta(days=1)
 
     return menu
 
