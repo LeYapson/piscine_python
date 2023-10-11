@@ -5,6 +5,7 @@ from filter_recipes import filter_recipes
 from sort_list import sort_recipes
 from read_recipes import get_recipes
 
+
 def main():
     # Define and parse command-line arguments
     parser = argparse.ArgumentParser(description="Generate a menu based on recipes data.")
@@ -26,6 +27,7 @@ def main():
 
     # Create the menu and write it to menu.txt
     build_menu(week_dates, filtered_recipes)
+
 
 if __name__ == "__main__":
     main()
