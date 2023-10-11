@@ -1,20 +1,22 @@
 import datetime as dt
+from datetime_utils import format_date
 
 
-def build_menu(recipes, start_date):
-    menu = []
-    current_date = start_date
+def build_menu(recipes: list[str], start_date: dt.date) -> list[tuple[dt.date, str]]:
+    listOfTuple = []
+    currentDate = start_date
 
     for recipe in recipes:
-        menu.append((current_date, recipe['title']))
-        current_date += dt.timedelta(days=1)
+        listOfTuple.append((currentDate, recipe))
+        currentDate += dt.timedelta(days=1)
 
-    return menu
+    return listOfTuple
 
 
-
-def save_menu(meals):
-    with open('menu.txt', 'w') as file:
-        for date, recipe in meals:
+def save_menu(meals: list[tuple[dt.date, str]]):
+    with open('menu.txt', 'w', encoding='utf-8') as file:
+        for meal in meals:
+            date, dish = meal
             formatted_date = date.strftime("%A %d %B %Y")
-            file.write(f"{formatted_date}: {recipe}\n")
+            menu_entry = f"{formatted_date}: {dish}\n"
+            file.write(menu_entry)
