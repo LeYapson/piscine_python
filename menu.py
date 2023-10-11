@@ -12,6 +12,7 @@ def build_menu(recipes, start_date):
     return menu
 
 
+
 def save_menu(meals):
     with open('menu.txt', 'w') as file:
         for date, recipe in meals:
