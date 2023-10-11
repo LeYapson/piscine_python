@@ -1,6 +1,6 @@
 import argparse
-from datetime_utils import format_date
-from menu import build_menu
+from datetime_utils import format_date, parse_time
+from menu import build_menu , save_menu
 from filter_recipes import filter_recipes
 from sort_list import sort_recipes
 from read_recipes import get_recipes
@@ -20,13 +20,13 @@ def main():
     recipes = sort_recipes(recipes, 'title')
 
     # Get the current week's dates
-    week_dates = format_date(args.start)
+    week_dates = format_date(parse_time(args.start))
 
     # Filter recipes based on the maximum number of persons
     filtered_recipes = filter_recipes(recipes, args.max_persons)
 
     # Create the menu and write it to menu.txt
-    build_menu(week_dates, filtered_recipes)
+    save_menu(build_menu(filtered_recipes, week_dates))
 
 
 if __name__ == "__main__":
