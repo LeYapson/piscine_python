@@ -55,17 +55,3 @@ def write_menu_to_file(menu, filename):
 
   with open(filename, "w") as f:
     f.write(menu)
-
-def main():
-  """The main function."""
-
-  start_date, max_persons = parse_arguments()
-
-  recipes = create_recipe("recipes_data.json")
-
-  menu = generate_menu_from_recipes(recipes, start_date, max_persons)
-
-  write_menu_to_file(menu, "menu.txt")
-
-if __name__ == "__main__":
-  main()
