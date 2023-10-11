@@ -4,7 +4,7 @@ def create_recipe(name, persons, ingredients):
         raise ValueError("Title is too long")
 
     # Check if persons is null or greater than 50
-    if persons is None or persons > 50:
+    if persons is None or persons > 50 or persons == 0:
         raise ValueError("Invalid persons number")
 
     # Check if ingredients list is empty
