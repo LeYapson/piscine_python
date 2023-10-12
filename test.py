@@ -1,9 +1,16 @@
-import datetime as dt
-import menu
+from spaceships import Interceptor, Bomber, Destroyer
 
 if __name__ == '__main__':
-    recipes = [
-        {'title': 'bananes flambées', 'persons': 30},
-        {'title': 'avocat au thon', 'persons': 4},
-    ]
-    print(menu.build_menu(recipes, dt.date(2022, 6, 1)))
+    tie_interceptor = Interceptor()
+    y_wing = Bomber()
+
+    print(tie_interceptor.attack)
+    print(y_wing.defense)
+
+    tie_interceptor.fire_on(y_wing)
+    print(y_wing.defense)
+
+    venator = Destroyer()
+    print(venator.defense)
+    tie_interceptor.fire_on(venator)
+    print(venator.defense)
