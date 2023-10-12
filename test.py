@@ -1,12 +1,9 @@
 import datetime as dt
-from decorator import with_current_date
-
-@with_current_date
-def log_message(message: str, current_date: dt.date):
-    # this is an example function
-    # you can imagine any other functions
-    return f'{current_date}: {message}'
+import menu
 
 if __name__ == '__main__':
-    print(log_message('hello'))
-    print(log_message('world'))
+    recipes = [
+        {'title': 'bananes flambées', 'persons': 30},
+        {'title': 'avocat au thon', 'persons': 4},
+    ]
+    print(menu.build_menu(recipes, dt.date(2022, 6, 1)))
