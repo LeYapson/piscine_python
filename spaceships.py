@@ -30,3 +30,7 @@ class Destroyer(FighterKiller, Battleship):
 class Cruiser(Battleship):
     def __init__(self):
         super().__init__(attack=800, defense=3000)
+
+class Frigate(BattleshipKiller, Battleship):
+    def __init__(self):
+        super().__init__(attack=500, defense=2500)
