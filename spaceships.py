@@ -15,7 +15,6 @@ class FighterKiller:
             target.take_damages(2 * self.attack)
         else:
             target.take_damages(self.attack)
-# In spaceships.py
 
 class Interceptor(FighterKiller, Fighter):
     def __init__(self):
@@ -28,3 +27,6 @@ class Bomber(BattleshipKiller, Fighter):
 class Destroyer(FighterKiller, Battleship):
     def __init__(self):
         super().__init__(attack=650, defense=5000)
+class Cruiser(Battleship):
+    def __init__(self):
+        super().__init__(attack=800, defense=3000)
