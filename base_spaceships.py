@@ -6,28 +6,18 @@ class Spaceship:
         self.defense = defense
 
     def take_damages(self, damage):
-        """
-        Apply damage to the spaceship's defense.
-
-        :param damage: The amount of damage to apply.
-        :type damage: int
-
-        :raises ValueError: If damage is negative.
-        """
         if damage < 0:
             raise ValueError("Damage cannot be negative.")
-
         self.defense -= damage
         if self.defense <= 0:
             self.defense = 0
             self.is_alive = False
 
-class Battleship(Spaceship):
-    """
-    A class representing a battleship, inheriting from Spaceship.
-    """
+    def fire_on(self, target):
+        """
+        Fire on another spaceship and apply damages.
 
-class Fighter(Spaceship):
-    """
-    A class representing a fighter, inheriting from Spaceship.
-    """
+        :param target: The target spaceship to attack.
+        :type target: Spaceship
+        """
+        target.take_damages(self.attack)
