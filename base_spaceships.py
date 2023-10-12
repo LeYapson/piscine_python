@@ -21,3 +21,13 @@ class Spaceship:
         if self.defense <= 0:
             self.defense = 0
             self.is_alive = False
+
+class Battleship(Spaceship):
+    """
+    A class representing a battleship, inheriting from Spaceship.
+    """
+
+class Fighter(Spaceship):
+    """
+    A class representing a fighter, inheriting from Spaceship.
+    """
