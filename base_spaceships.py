@@ -21,3 +21,13 @@ class Spaceship:
         :type target: Spaceship
         """
         target.take_damages(self.attack)
+
+class Battleship(Spaceship):
+    """
+    A class representing a battleship, inheriting from Spaceship.
+    """
+
+class Fighter(Spaceship):
+    """
+    A class representing a fighter, inheriting from Spaceship.
+    """
