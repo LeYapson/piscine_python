@@ -10,7 +10,8 @@ class BattleshipKiller:
         if isinstance(target, Battleship):
             target.take_damages(self.attack * 2)
         else:
-            target.take_damages(self.attack)
+            if isinstance(target, Fighter):
+                target.take_damages(self.attack)
 
 
 class FighterKiller:
@@ -22,7 +23,8 @@ class FighterKiller:
         if isinstance(target, Fighter):
             target.take_damages(self.attack * 2)
         else:
-            target.take_damages(self.attack)
+            if isinstance(target, Battleship):
+                target.take_damages(self.attack)
 
 
 class Interceptor(Fighter, FighterKiller):
