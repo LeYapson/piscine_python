@@ -2,7 +2,7 @@ from base_spaceships import Fighter, Battleship
 
 
 class BattleshipKiller:
-    def __init__(self, attack):
+    def __init__(self, attack=100):
         self.attack = attack
 
     def fire_on(self, target):
@@ -13,7 +13,7 @@ class BattleshipKiller:
 
 
 class FighterKiller:
-    def __init__(self, attack):
+    def __init__(self, attack=100):
         self.attack = attack
 
     def fire_on(self, target):
