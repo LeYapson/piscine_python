@@ -4,6 +4,10 @@ from base_spaceships import Fighter, Battleship
 
 
 class BattleshipKiller:
+    def __init__(self, attack, defense):
+        self.attack = attack
+        self.defense = defense
+
     def fire_on(self, target):
         if isinstance(target, Battleship):
             target.take_damages(2 * self.attack)
@@ -12,6 +16,10 @@ class BattleshipKiller:
 
 
 class FighterKiller:
+    def __init__(self, attack, defense):
+        self.attack = attack
+        self.defense = defense
+
     def fire_on(self, target):
         if isinstance(target, Fighter):
             target.take_damages(2 * self.attack)
@@ -42,5 +50,3 @@ class Frigate(BattleshipKiller, Battleship):
 class Destroyer(BattleshipKiller, Battleship):
     def __init__(self):
         super().__init__(attack=650, defense=5000)
-
-
