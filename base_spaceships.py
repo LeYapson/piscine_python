@@ -1,7 +1,7 @@
 class Spaceship:
     is_alive = True
 
-    def __init__(self, attack=0, defense=0):
+    def __init__(self, attack=100, defense=100):
         self.attack = attack
         self.defense = defense
 
