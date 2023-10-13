@@ -7,9 +7,9 @@ class BattleshipKiller:
 
     def fire_on(self, target):
         if isinstance(target, Battleship):
-            target.defense -= self.attack * 2
+            target.take_damages(self.attack * 2)
         else:
-            target.defense -= self.attack
+            target.take_damages(self.attack)
 
 
 class FighterKiller:
@@ -18,9 +18,9 @@ class FighterKiller:
 
     def fire_on(self, target):
         if isinstance(target, Fighter):
-            target.defense -= self.attack * 2
+            target.take_damages(self.attack * 2)
         else:
-            target.defense -= self.attack
+            target.take_damages(self.attack)
 
 
 class Interceptor(Fighter, FighterKiller):
