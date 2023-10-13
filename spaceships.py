@@ -7,6 +7,8 @@ class BattleshipKiller:
         self.defense = defense
 
     def fire_on(self, target):
+        if target is None:
+            raise ValueError("The target cannot be None.")
         if isinstance(target, Battleship):
             target.take_damages(self.attack * 2)
         else:
@@ -20,6 +22,8 @@ class FighterKiller:
         self.defense = defense
 
     def fire_on(self, target):
+        if target is None:
+            raise ValueError("The target cannot be None.")
         if isinstance(target, Fighter):
             target.take_damages(self.attack * 2)
         else:
