@@ -37,7 +37,7 @@ class Bomber(BattleshipKiller, Fighter):
         self.attack = 150
 
 
-class Cruiser(FighterKiller, Battleship):
+class Cruiser(Battleship):
     def __init__(self):
         super().__init__(attack=800, defense=3000)
         self.attack = 800
