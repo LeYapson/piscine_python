@@ -1,54 +1,44 @@
-from base_spaceships import Fighter, Battleship
+from base_spaceships import Battleship, Fighter, Spaceship
 
 
-class BattleshipKiller(Battleship):
-    def __init__(self):
-        super().__init__(attack=150, defense=2000)
-
-    def fire_on(self, target):
-        if target is None:
-            raise ValueError("The target cannot be None.")
-        if isinstance(target, Battleship):
+class BattleshipKiller(Spaceship):
+    def fire_on(self, target: Spaceship):
+        if target.__class__.__base__.__name__ == "Battleship" or target.__class__.__name__ == "Battleship":
             target.take_damages(self.attack * 2)
         else:
-            if isinstance(target, Fighter):
-                target.take_damages(self.attack)
+            target.take_damages(self.attack)
+        return target
 
 
-class FighterKiller(Fighter):
-    def __init__(self):
-        super().__init__(attack=150, defense=2000)
-
-    def fire_on(self, target):
-        if target is None:
-            raise ValueError("The target cannot be None.")
-        if isinstance(target, Fighter):
+class FighterKiller(Spaceship):
+    def fire_on(self, target: Spaceship):
+        if target.__class__.__base__.__name__ == "Fighter" or target.__class__.__name__ == "Fighter":
             target.take_damages(self.attack * 2)
         else:
-            if isinstance(target, Battleship):
-                target.take_damages(self.attack)
+            target.take_damages(self.attack)
+        return target
 
 
-class Interceptor(FighterKiller, Fighter):
-    def __init__(self):
-        super().__init__()
+class Interceptor(Fighter, FighterKiller):
+    def __init__(self, attack=180, defense=1000) -> None:
+        super().__init__(attack, defense)
 
 
-class Bomber(BattleshipKiller, Fighter):
-    def __init__(self):
-        super().__init__()
+class Bomber(Fighter, BattleshipKiller):
+    def __init__(self, attack=150, defense=2000) -> None:
+        super().__init__(attack, defense)
 
 
 class Cruiser(Battleship):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, attack=800, defense=3000) -> None:
+        super().__init__(attack, defense)
 
 
-class Frigate(FighterKiller, Battleship):
-    def __init__(self):
-        super().__init__()
+class Frigate(Battleship, FighterKiller):
+    def __init__(self, attack=500, defense=2500) -> None:
+        super().__init__(attack, defense)
 
 
-class Destroyer(BattleshipKiller, Battleship):
-    def __init__(self):
-        super().__init__()
+class Destroyer(Battleship, BattleshipKiller):
+    def __init__(self, attack=650, defense=5000) -> None:
+        super().__init__(attack, defense)
