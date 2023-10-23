@@ -25,31 +25,31 @@ class FighterKiller:
                 target.take_damages(self.attack)
 
 
-class Interceptor(Fighter, FighterKiller):
+class Interceptor(FighterKiller, Fighter):
     def __init__(self):
         super().__init__(attack=180, defense=1000)
         self.attack = 180
 
 
-class Bomber(Fighter, BattleshipKiller):
+class Bomber(BattleshipKiller, Fighter):
     def __init__(self):
         super().__init__(attack=150, defense=2000)
         self.attack = 150
 
 
-class Cruiser(Battleship, FighterKiller):
+class Cruiser(FighterKiller, Battleship):
     def __init__(self):
         super().__init__(attack=800, defense=3000)
         self.attack = 800
 
 
-class Frigate(Battleship, FighterKiller):
+class Frigate(FighterKiller, Battleship):
     def __init__(self):
         super().__init__(attack=500, defense=2500)
         self.attack = 500
 
 
-class Destroyer(Battleship, BattleshipKiller):
+class Destroyer(BattleshipKiller, Battleship):
     def __init__(self):
         super().__init__(attack=650, defense=5000)
         self.attack = 650
