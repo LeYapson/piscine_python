@@ -2,7 +2,8 @@ from base_spaceships import Battleship, Fighter, Spaceship
 
 
 class Fleet:
-    def __init__(self, name, ships):
+
+    def __init__(self, name: str, ships: list):
         self.name = name
         self.ships = ships
 
@@ -30,15 +31,15 @@ class Fleet:
 
     @property
     def alive_ships(self):
-        return len(self.get_all_alive_ships())
+        return self.get_all_alive_ships()
 
     @property
     def alive_fighters(self):
-        return len(self.get_alive_fighters())
+        return self.get_alive_fighters()
 
     @property
     def alive_battleships(self):
-        return len(self.get_alive_battleships())
+        return self.get_alive_battleships()
 
     @property
     def report(self):
