@@ -2,9 +2,6 @@ from base_spaceships import Fighter, Battleship
 
 
 class BattleshipKiller:
-    def __init__(self, attack=100, defense=100):
-        self.attack = attack
-        self.defense = defense
 
     def fire_on(self, target):
         if target is None:
@@ -17,9 +14,6 @@ class BattleshipKiller:
 
 
 class FighterKiller:
-    def __init__(self, attack=100, defense=100):
-        self.attack = attack
-        self.defense = defense
 
     def fire_on(self, target):
         if target is None:
