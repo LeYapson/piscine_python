@@ -1,7 +1,7 @@
 from base_spaceships import Fighter, Battleship
 
 
-class BattleshipKiller:
+class BattleshipKiller(Battleship):
 
     def fire_on(self, target):
         if target is None:
@@ -13,7 +13,7 @@ class BattleshipKiller:
                 target.take_damages(self.attack)
 
 
-class FighterKiller:
+class FighterKiller(Fighter):
 
     def fire_on(self, target):
         if target is None:
