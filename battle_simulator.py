@@ -1,20 +1,17 @@
 import random
-
 from base_spaceships import Spaceship
-
 
 class Simulator:
     @staticmethod
-    def _duel_fight(attacker_ship: Spaceship, defender_ship: Spaceship):
-        attacker_ship.fire_on(defender_ship);
+    def _duel_fight(attack_spaceship : Spaceship, defense_spaceship : Spaceship) -> None:
+        attack_spaceship.fire_on(defense_spaceship)
+        if defense_spaceship.is_alive == True:
+            defense_spaceship.fire_on(attack_spaceship)
 
-        if defender_ship.is_alive == True:
-            defender_ship.fire_on(attacker_ship)
-
-    def _simulate_fight(self, attackers, defenders):
-        for attacker_ship in attackers:
-            if attacker_ship.is_alive:
-                alive_defenders = [ship for ship in defenders if ship.is_alive]
-                if alive_defenders:
-                    defender_ship = random.choice(alive_defenders)
-                    self._duel_fight(attacker_ship, defender_ship)
+    def _simulate_fight(self, attacker_ships_list:list, defenser_ships_list:list):
+        if not len(attacker_ships_list) or not len(defenser_ships_list):
+            pass
+        else:
+            for ship in attacker_ships_list:
+                if ship.is_alive:
+                    self._duel_fight(ship, defenser_ships_list[random.randint(0, len(defenser_ships_list)-1)])
