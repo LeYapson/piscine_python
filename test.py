@@ -6,7 +6,6 @@ if __name__ == '__main__':
     y_wing = Bomber()
 
     simulator = Simulator()
-
     simulator._duel_fight(tie_fighter, y_wing)
     print(tie_fighter.defense)
     print(y_wing.defense)

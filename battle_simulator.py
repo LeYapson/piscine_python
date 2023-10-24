@@ -1,18 +1,9 @@
 from base_spaceships import Spaceship
-from spaceships import Interceptor, Frigate, Bomber
 
+class Simulator:
+  @staticmethod
+  def _duel_fight(attacker_ship: Spaceship, defender_ship: Spaceship):
+    attacker_ship.fire_on(defender_ship);
 
-class Simulator(Spaceship):
-    @staticmethod
-    def _duel_fight(attacker, defender):
-        while attacker.is_alive and defender.is_alive:
-            defender.defense -= attacker.attack
-            if defender.defense <= 0:
-                defender.is_alive = False
-                break
-            attacker.defense -= defender.attack
-            if attacker.defense <= 0:
-                attacker.is_alive = False
-                break
-
-# Make sure you have the Spaceship class defined in spaceships.py.
+    if defender_ship.is_alive == True:
+      defender_ship.fire_on(attacker_ship)
